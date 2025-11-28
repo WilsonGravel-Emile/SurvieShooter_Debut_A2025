@@ -16,7 +16,7 @@ public class BalleScript : MonoBehaviour
      * Fonction OnCollisionEnter. Gère ce qui se passe lorsqu'une balle touche un objet.
      */
 
-    private void OnCollisionEnter(Collision infoCollisions)
+    private void OnCollisionEnter(Collision infoCollisions) // joue lorsque la balle entre en collision avec un autre objet
     {
 
         // Effet de particules à l'impact

@@ -8,7 +8,7 @@ public class ScriptPerso : MonoBehaviour
     private Vector3 destination;
     private Animator persoAnim;
     private NavMeshAgent navAgent;
-
+    public  static int  score; // score du joueur
     void Start()
     {
         destination = transform.position;
@@ -19,7 +19,7 @@ public class ScriptPerso : MonoBehaviour
    
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && gameObject.GetComponent<DeplacementPersoScript>().isDead == false)
         {
             Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit infosCollision;

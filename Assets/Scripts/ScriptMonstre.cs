@@ -5,7 +5,10 @@ public class ScriptMonstre : MonoBehaviour
 {
     public GameObject cible; // Référence au joueur¸
     public GameObject particulesMort; // Référence aux particules de mort
+    [Header("Statistiques du monstre")]
     public int pointsVie; // Points de vie du monstre
+    public int pointsDonner; // Points attribués au joueur lorsqu'il tue le monstre
+    [Header("reference a l'audio") ]
     public AudioClip sonMort; // Référence au son de mort du monstre
     public AudioClip sonMal; // Référence au son de douleur du monstre
     private AudioSource sourceAudio; // Composant AudioSource pour jouer les sons
@@ -45,14 +48,17 @@ public class ScriptMonstre : MonoBehaviour
         GetComponent<Animator>().SetBool("isDead", true); // Active l'animation de mort
         // le prof va me revenir pour trouver pouquoi l'animation de mort ne marche pas
         //GetComponent<NavMeshAgent>().isStopped = true; // Arrête le déplacement du monstre
+        GetComponent<Animator>().SetTrigger("isReallyDead"); // Active l'animation de mort
         GetComponent<NavMeshAgent>().speed = 0; // Désactive le NavMeshAgent
+        ScriptPerso.score += pointsDonner; // Ajoute des points au score du joueur
         Invoke("Disparition", 3f); // Appelle la fonction Disparition après 3 secondes
-        gameObject.tag = "Untagged"; // Change le tag du monstre pour éviter les collisions avec les balles        
+        gameObject.tag = "Untagged"; // Change le tag du monstre pour éviter les collisions avec les balles
+        
     }
     void Disparition()
     {
-        //particule ne marche pas 
-        GetComponent<Animator>().SetBool("isDead", false); // Active l'animation de mort
+        transform.Find("DeathParticles").gameObject.SetActive(true); // Active les particules de mort
+        transform.Find("DeathParticles").parent = null; // Détache les particules de mort du monstre
         Destroy(gameObject); // Détruit le monstre
     }
 }

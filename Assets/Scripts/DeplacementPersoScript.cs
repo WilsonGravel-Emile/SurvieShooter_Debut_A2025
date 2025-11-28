@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 
 public class DeplacementPersoScript : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class DeplacementPersoScript : MonoBehaviour
     public static bool jeuTerminer;
     public AudioClip sonMort; // son joué à la mort du personnage
     public AudioSource sourceAudio; // source audio du personnage
+    public bool isDead;
 
     void Start()
     {
@@ -32,6 +34,9 @@ public class DeplacementPersoScript : MonoBehaviour
      */
     void FixedUpdate()
     {
+        if (!isDead)
+        { 
+
         /* ### déplacement du perso ###
         On commence par récupérer les valeurs de l'axe vertical et de l'axe horizontal. 
         GetAxisRaw renvoie une valeur soit de -1, 0 ou 1. Aucune progression comme avec GetAxis.*/
@@ -51,8 +56,8 @@ public class DeplacementPersoScript : MonoBehaviour
         /* ### rotation du personnage simple ###
          * on tourne le personnage en fonctione du déplacement horizontal de la souris. On mutliplie par la variable
          * vitesseRotationPerso pour pouvoir contrôler la vitesse de rotation*/
-       // float tourne = Input.GetAxis("Mouse X") * vitesseRotationPerso;
-      //  transform.Rotate(0f, tourne, 0f);
+        // float tourne = Input.GetAxis("Mouse X") * vitesseRotationPerso;
+        //  transform.Rotate(0f, tourne, 0f);
 
         /* ### rotation du personnage complexe, mais plus précise pour le tir. Activer cette fonction pour qu'elle s'exécute
          * et mettre en commentaire la rotation simple.*/
@@ -67,7 +72,7 @@ public class DeplacementPersoScript : MonoBehaviour
          * on active l'animation de repos. GetComponent<Rigidbody>().velocity.magnitude...
          * 
         /* */
-        if(GetComponent<Rigidbody>().linearVelocity.magnitude > 0f)
+        if (GetComponent<Rigidbody>().linearVelocity.magnitude > 0f)
         {
             GetComponent<Animator>().SetBool("bouge", true);
         }
@@ -82,7 +87,7 @@ public class DeplacementPersoScript : MonoBehaviour
          * une distance (variable distanceCamera). On fait aussi un LookAt pour s'assurer que la caméra regarde vers le joueur*/
         cameraPerso.transform.position = transform.position + distanceCamera;
         cameraPerso.transform.LookAt(transform.position);
-
+        }
         //----------------------------------------------------------------------------------------------
     }
 
@@ -127,14 +132,17 @@ public class DeplacementPersoScript : MonoBehaviour
         //outil de déboggage pour visualiser le rayon dans l'onglet scene
         Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.yellow);   
     }
-    private void OnCollisionEnter(Collision infocollision)
+    private void OnCollisionEnter(Collision infocollision) // cette méthode est appelée lorsque le personnage entre en collision avec un autre objet 
     {
-        if (infocollision.gameObject.tag == "monstre")
+        if (infocollision.gameObject.tag == "monstre") // si le joeur avec lequel il entre en collision est un monstre
         {
-            GetComponent<Animator>().SetBool("isDead", true);
-            sourceAudio.PlayOneShot(sonMort);
-            Invoke("GameOver", 3f);
-            jeuTerminer = true;
+
+            //print ("Le personnage est mort");
+            GetComponent<Animator>().SetTrigger("isReallyDead"); // active l'animation de mort
+            sourceAudio.PlayOneShot(sonMort);// joue le son de mort
+            Invoke("GameOver", 3f);// appelle la fonction GameOver après 3 secondes
+            jeuTerminer = true;// indique que le jeu est terminé pour que les monstres arrêtent de se déplacer
+            isDead = true;// indique que le personnage est mort pour arrêter son déplacement
         }
     }
 

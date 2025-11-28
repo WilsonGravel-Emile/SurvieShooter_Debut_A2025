@@ -20,8 +20,8 @@ public class ScriptCapsule : MonoBehaviour
 
     void Update()
     {
-		if (Input.GetMouseButtonDown(0))
-		{
+		if (Input.GetMouseButtonDown(0)) // Si le joueur clique avec le bouton gauche de la souris pour le raycast pas la balle
+        {
 			Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit infosCollision;
 

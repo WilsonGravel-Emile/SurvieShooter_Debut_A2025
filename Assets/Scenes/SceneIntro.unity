@@ -985,7 +985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1522694e120d94ba28c9331a66cf24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScriptScene
-  musique: {fileID: 1580322587}
 --- !u!1 &1580322587
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,6 +994,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1580322588}
+  - component: {fileID: 1580322589}
   m_Layer: 0
   m_Name: musqiue
   m_TagString: Untagged
@@ -1018,6 +1018,18 @@ Transform:
   - {fileID: 521526928}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1580322589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580322587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad5f104a37a6824daa03366b3050b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &2046046844
 GameObject:
   m_ObjectHideFlags: 0

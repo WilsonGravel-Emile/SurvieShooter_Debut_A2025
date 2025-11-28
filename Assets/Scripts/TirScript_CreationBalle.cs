@@ -31,9 +31,9 @@ public class TirScript_CreationBalle : MonoBehaviour
      */
     void Update()
     {
-        
-         // --> partie à compléter ****
-         if(Input.GetKeyDown(KeyCode.Mouse0) && peutTirer)
+
+        // --> partie à compléter ****
+        if (Input.GetKeyDown(KeyCode.Mouse0) && peutTirer && !gameObject.GetComponent<DeplacementPersoScript>().isDead)
         {
             Tir();
         }

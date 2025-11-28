@@ -6,11 +6,11 @@ public class CreationZomBunny : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("Reproduire", 5f, 2f); //car il a plus de vie que le lapin
+        InvokeRepeating("Reproduire", 4f, 2f); //car le lapin a moins de vie, il va etre créer apres 4 secondes et va se reproduire chaque 2 secondes
     }
     void Reproduire()
     {
-        GameObject leClone = Instantiate(lapin);
-        leClone.SetActive(true);
-    }
+        GameObject leClone = Instantiate(lapin); // création du clone
+        leClone.SetActive(true); 
+    } 
 }

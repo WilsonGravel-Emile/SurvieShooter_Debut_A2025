@@ -815,6 +815,7 @@ MonoBehaviour:
   cible: {fileID: 1891643820}
   particulesMort: {fileID: 1885033567}
   pointsVie: 5
+  pointsDonner: 5
   sonMort: {fileID: 8300000, guid: 8c615fd0429f34edf85539d70279360d, type: 3}
   sonMal: {fileID: 8300000, guid: fce027b40770a44298a6f5a4233bfb04, type: 3}
 --- !u!195 &330261029
@@ -984,6 +985,7 @@ MonoBehaviour:
   cible: {fileID: 1891643820}
   particulesMort: {fileID: 1889220464}
   pointsVie: 1
+  pointsDonner: 3
   sonMort: {fileID: 8300000, guid: 1d3bfb9269f136947bf8ac164cace1ff, type: 3}
   sonMal: {fileID: 8300000, guid: 02e6208ec76314158a9f548f51fe9f11, type: 3}
 --- !u!136 &396475062
@@ -1629,21 +1631,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 330261032}
     m_Modifications:
+    - target: {fileID: 8289925714261860950, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8289925714276945816, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_Name
       value: DeathParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 8289925714276945816, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.547288
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000047683716
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.030686378
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1753,13 +1763,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 396475065}
     m_Modifications:
+    - target: {fileID: 8289925714261860950, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8289925714276945816, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_Name
       value: DeathParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 8289925714276945816, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.0319269
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1767,7 +1785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.2606926
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1825,6 +1843,7 @@ MonoBehaviour:
   cible: {fileID: 1891643820}
   particulesMort: {fileID: 1474458484}
   pointsVie: 3
+  pointsDonner: 1
   sonMort: {fileID: 8300000, guid: 62366b8d2c37a49dca550841c741317f, type: 3}
   sonMal: {fileID: 8300000, guid: 02e6208ec76314158a9f548f51fe9f11, type: 3}
 --- !u!136 &1190938744
@@ -2006,6 +2025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreationHellephant
   elephant: {fileID: 330261027}
+  scoreHellephant: 5
 --- !u!4 &1205393018
 Transform:
   m_ObjectHideFlags: 0
@@ -2144,21 +2164,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1190938746}
     m_Modifications:
+    - target: {fileID: 8289925714261860950, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8289925714276945816, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_Name
       value: DeathParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 8289925714276945816, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3774369
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.063
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.9115716
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8289925714277115218, guid: 4480f9758806a48adacaca84278e2d42, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2244,7 +2272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -2604,6 +2632,7 @@ GameObject:
   - component: {fileID: 1796794232}
   - component: {fileID: 1796794234}
   - component: {fileID: 1796794233}
+  - component: {fileID: 1796794235}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -2627,7 +2656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 130.1, y: -58}
+  m_AnchoredPosition: {x: 129.9, y: -54.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796794233
@@ -2677,8 +2706,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24.6
+  m_fontSizeBase: 24.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2729,6 +2758,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796794231}
   m_CullTransparentMesh: 1
+--- !u!114 &1796794235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796794231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad2b1e97cd664146a190095e2c92bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptUIScore
 --- !u!1 &1839046676
 GameObject:
   m_ObjectHideFlags: 0

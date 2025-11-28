@@ -13,13 +13,16 @@ public class DeplacementPersoScript : MonoBehaviour
     public float vitesseDeplacementPerso; // vitesse de déplacement du personnage
     public float vitesseRotationPerso;// vitesse de rotation du personnage lorsque la souris se déplace horizontalement
     public bool curseurLock; // On vérouille ou non le curseur.
-
-   
+    public static bool jeuTerminer;
+    public AudioClip sonMort; // son joué à la mort du personnage
+    public AudioSource sourceAudio; // source audio du personnage
 
     void Start()
     {
         // Active le verrouillage du curseur seulement si l'option est cochée. Utilie seulement avec la caméra simple "rotate".
         if(curseurLock)Cursor.lockState = CursorLockMode.Locked;
+        sourceAudio = GetComponent<AudioSource>();
+        jeuTerminer = false;
     }
 
 
@@ -123,5 +126,20 @@ public class DeplacementPersoScript : MonoBehaviour
         }
         //outil de déboggage pour visualiser le rayon dans l'onglet scene
         Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.yellow);   
+    }
+    private void OnCollisionEnter(Collision infocollision)
+    {
+        if (infocollision.gameObject.tag == "monstre")
+        {
+            GetComponent<Animator>().SetBool("isDead", true);
+            sourceAudio.PlayOneShot(sonMort);
+            Invoke("GameOver", 3f);
+            jeuTerminer = true;
+        }
+    }
+
+    void GameOver()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("SceneGameOver");
     }
 }

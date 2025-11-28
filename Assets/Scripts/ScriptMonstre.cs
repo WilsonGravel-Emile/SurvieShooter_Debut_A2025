@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 public class ScriptMonstre : MonoBehaviour
@@ -17,8 +18,16 @@ public class ScriptMonstre : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<NavMeshAgent>().SetDestination(cible.transform.position);//Déplace le navmeshagent vers le joueur
-        GetComponent<Animator>().SetFloat("vitesse", GetComponent<NavMeshAgent>().velocity.magnitude); // Active l'animation de marche
+
+        if (!DeplacementPersoScript.jeuTerminer)
+        {
+            GetComponent<NavMeshAgent>().SetDestination(cible.transform.position);//Déplace le navmeshagent vers le joueur
+            GetComponent<Animator>().SetFloat("vitesse", GetComponent<NavMeshAgent>().velocity.magnitude); // Active l'animation de marche
+        }
+        else
+        {
+            GetComponent<NavMeshAgent>().speed = 0; // Désactive le NavMeshAgent
+        }
     }
     public void Touche()
     {
